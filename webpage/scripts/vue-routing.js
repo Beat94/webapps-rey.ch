@@ -35,8 +35,8 @@ var app = new Vue({
 function timeById(){
 	stunde = document.querySelector("#hour").value;
 	minuten = document.querySelector("#minute").value;
-	console.log("Stunde: " + stunde);
-	console.log("Minute: " + minuten);
+	//console.log("Stunde: " + stunde);
+	//console.log("Minute: " + minuten);
 	resultat = parseInt(stunde) + (parseInt(minuten) / 60);
 	document.getElementById("ausgabe").innerHTML = resultat;
 }
