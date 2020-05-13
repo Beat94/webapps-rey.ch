@@ -23,9 +23,34 @@
 				resultat = time(parseInt(stunde), parseInt(minuten));
 				document.getElementById("ausgabe").innerHTML = resultat;
 			}
+			
+			function midnight(){
+				varA = document.querySelector("#variableA").value;
+				varB = document.querySelector("#variableB").value;
+				varC = document.querySelector("#variableC").value;
+				
+				varAInt = parseInt(varA);
+				varBInt = parseInt(varB);
+				varCInt = parseInt(varC);
+				
+				result1 = ((varBInt * (-1)) + Math.pow(Math.pow(varBInt, 2) - 4 * varAInt * varCInt, 0.5)) / (2 * varAInt);
+				result2 = ((varBInt * (-1)) - Math.pow(Math.pow(varBInt, 2) - 4 * varAInt * varCInt, 0.5)) / (2 * varAInt);
+				
+				
+				
+				console.log(result1);
+				console.log(result2);
+				
+				document.getElementById("output").innerHTML = "X1: \t" + result1 + "<br>";
+				document.getElementById("output").innerHTML += "X2: \t" + result2;
+				
+				
+			}
+			
+			
 		</script>
 	</head>
-	<body onload="hi()">
+	<body>
 			
 		<div>
 			<h1>Home - testpage Webapps</h1>
@@ -46,7 +71,33 @@
 				<button type="button" v-on:click="calculate">calculate</button>
 			</form>
 			{{ result }}
+			
+			
 		</div>
+		
+		<div>
+			<form>
+				<table>
+					<tr>
+						<td>A:</td><td><input type="number" id="variableA"></td>
+					</tr>
+					<tr>
+						<td>B:</td><td><input type="number" id="variableB"></td>
+					</tr>
+					<tr>
+						<td>C:</td><td><input type="number" id="variableC"></td>
+					</tr>
+				</table><br>
+				
+				<button onclick="midnight()">Calculate</button><br><br>
+				
+				<div id="output"></div>
+			
+			</form>
+		
+		</div>
+		
+		
 		
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-router"></script>
