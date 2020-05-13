@@ -20,9 +20,3 @@ var app = new Vue({
 	router
 });
 
-function timeById(){
-	stunde = document.querySelector("#hour").value;
-	minuten = document.querySelector("#minute").value;
-	resultat = parseInt(stunde) + (parseInt(minuten) / 60);
-	document.getElementById("ausgabe").innerHTML = resultat;
-}
