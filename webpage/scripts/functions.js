@@ -13,15 +13,26 @@ function midnight(){
 	varBInt = parseInt(varB);
 	varCInt = parseInt(varC);
 	
-	result1 = ((varBInt * (-1)) + Math.pow(Math.pow(varBInt, 2) - 4 * varAInt * varCInt, 0.5)) / (2 * varAInt);
-	result2 = ((varBInt * (-1)) - Math.pow(Math.pow(varBInt, 2) - 4 * varAInt * varCInt, 0.5)) / (2 * varAInt);
 	
+	varDInt = Math.pow(varBInt, 2) - 4 * varAInt * varCInt;
 	
-	//output
-	//console.log(result1);
-	//console.log(result2);
-	document.getElementById("output").innerHTML = "X1: \t" + result1 + "<br>";
-	document.getElementById("output").innerHTML += "X2: \t" + result2;
+	if(parseInt(varDInt) < 0){
+		
+		document.getElementById("output").innerHTML = "Ergibt eine komplexe L&oumlsung bitte den Taschenrechner verwenden ;-)."
+		
+	}else{	
+	
+		result1 = ((varBInt * (-1)) + Math.pow(Math.pow(varBInt, 2) - 4 * varAInt * varCInt, 0.5)) / (2 * varAInt);
+		result2 = ((varBInt * (-1)) - Math.pow(Math.pow(varBInt, 2) - 4 * varAInt * varCInt, 0.5)) / (2 * varAInt);
+		
+		
+		//output
+		//console.log(result1);
+		//console.log(result2);
+		document.getElementById("output").innerHTML = "X1: \t" + result1 + "<br>";
+		document.getElementById("output").innerHTML += "X2: \t" + result2;
+		
+	}
 	
 }
 
