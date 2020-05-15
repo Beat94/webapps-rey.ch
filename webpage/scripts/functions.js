@@ -4,6 +4,25 @@ function toHours(hour, minute){
 	return hourInt + (minuteInt / 60);
 }
 
+function onEnterListener(btnId){
+	if (event.keyCode === 13){
+		
+		document.getElementById(btnId).click();
+		
+	}
+	
+}
+
+function onEnterListener1(btnId){
+	if (event.keyCode === 13){
+		
+		document.getElementById(btnId).click();
+		
+	}
+	
+}
+
+
 function midnight(){
 	varA = document.querySelector("#variableA").value;
 	varB = document.querySelector("#variableB").value;
