@@ -55,7 +55,7 @@ function midnight(){
 	
 }
 
-//Diese Funktion wird nicht mehr gebraucht
+// Diese Funktion wird nicht mehr gebraucht
 function timeById(){
 	stunden = document.querySelector("#hour").value;
 	minuten = document.querySelector("#minute").value;
@@ -68,7 +68,104 @@ function timeByIdStr(){
 	stunden = parseInt(inputStringSplit[0]);
 	minuten = parseInt(inputStringSplit[1]);
 
-	//document.getElementById("ausgabe").innerHTML = inputStringSplit;
+	// document.getElementById("ausgabe").innerHTML = inputStringSplit;
 
 	document.getElementById("ausgabe").innerHTML = toHours(stunden, minuten);
+}
+
+// ab hier ist der Arr-Calc-Teil
+//--------------------------------
+var startArr = ["r2d2"];
+var endArr = ["r2d2"];
+var calcArr = ["r2d2"];
+
+function ausgArr(){
+	document.getElementById("ausgabe").innerHTML = "";
+
+	total = 0;
+
+	//output
+	for(var i = 0; i < startArr.length; i++){
+		document.getElementById("ausgabe").innerHTML += " | " +  startArr[i] + " | " + endArr[i] + " | " + calcArr[i] + " | <button onClick='editOpen(" + i + ")'>Editieren</button> | <button onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
+		total += calcArr[i];
+	}
+	document.getElementById("ausgabe").innerHTML += "</table><br><br>Total: " + total;
+}
+
+// arrAdd
+function timeByIdStartEnd(){
+	startString = document.getElementById("Start").value;
+	endString = document.getElementById("End").value;
+	
+	startStringSplit = startString.split(":");
+	endStringSplit = endString.split(":");
+
+	startToHours = toHours(startStringSplit[0], startStringSplit[1]);
+	endToHours = toHours(endStringSplit[0], endStringSplit[1]);
+	calcToHours = endToHours - startToHours;
+
+	startArr.push(startToHours);
+	endArr.push(endToHours);
+	calcArr.push(calcToHours);
+	
+	if(startArr[0] === "r2d2"){
+		startArr.shift();
+		endArr.shift();
+		calcArr.shift();
+	}
+	
+	ausgArr();
+
+}
+
+function removeDataset(zeiger){
+	startArr.splice(zeiger, 1);
+	endArr.splice(zeiger, 1);
+	calcArr.splice(zeiger, 1);
+
+	ausgArr();
+}
+
+function timeReset(){
+	console.log("Time wird resetted");
+
+	//del Arrays
+	for(var i = startArr.length; i >= 0; i--){
+		startArr.splice(i, 1);
+		endArr.splice(i, 1);
+		calcArr.splice(i, 1);
+	}
+
+	//Array mit Standard-Wert füllen
+	startArr.push("r2d2");
+	endArr.push("r2d2");
+	calcArr.push("r2d2");
+
+
+	document.getElementById("ausgabe").innerHTML = "Zeit Resetted";
+	console.log("Fertig");
+}
+
+function editOpen(zeiger){
+	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='hh:mm' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='hh:mm' style='width:80px;''> <button onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
+}
+
+function inputNew(zeiger){
+	startStringNew = document.getElementById("startEdit" + zeiger).value;
+	endStringNew = document.getElementById("endEdit" + zeiger).value;
+	
+	startStringSplit = startStringNew.split(":");
+	endStringSplit = endStringNew.split(":");
+
+	startToHours = toHours(startStringSplit[0], startStringSplit[1]);
+	endToHours = toHours(endStringSplit[0], endStringSplit[1]);
+	calcToHours = endToHours - startToHours;
+
+
+	startArr[zeiger] = startToHours;
+	endArr[zeiger] = endToHours;
+	calcArr[zeiger] = calcToHours;
+
+	ausgArr();
+
 }
