@@ -2,6 +2,7 @@
 	<head>
 		<title>Rey - Test-Page</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src=".\scripts\functions.js"></script>
 		<script>
 			function hi(){
 				console.log("hallo Welt");
@@ -53,49 +54,12 @@
 	<body>
 			
 		<div>
-			<h1>Home - testpage Webapps</h1>
+			<h2>Zeitrechner</h2>
 			<form>
-				<input type="number" id="hour"> : <input type="number" id="minute"><br>
-				<button type="button" onclick="timeById()">Enter</button>
+				<input type="text" id="inputStr" style="width:80px;" placeholder="hh:mm"><br><br>
+				<button id="btnTimeCalc" class="btn btn-dark" onclick="timeByIdStr()">Calculate</button>
 			</form>
-			<div id="ausgabe">0</div>
-		</div>
-		<div id="app">
-			<test-calc></test-calc>
-			{{ test }}
-			<button v-on:click="setTest">setTest</button><br><br>
-			
-			
-			<form>
-				<input v-model="hour" type="number"> : <input v-model="minute" type="number"><br>
-				<button type="button" v-on:click="calculate">calculate</button>
-			</form>
-			{{ result }}
-			
-			
-		</div>
-		
-		<div>
-			<form>
-				<table>
-					<tr>
-						<td>A:</td><td><input type="number" id="variableA"></td>
-					</tr>
-					<tr>
-						<td>B:</td><td><input type="number" id="variableB"></td>
-					</tr>
-					<tr>
-						<td>C:</td><td><input type="number" id="variableC"></td>
-					</tr>
-				</table><br>
-				
-				<button onclick="midnight()">Calculate</button><br><br>
-				
-				<div id="output"></div>
-			
-			</form>
-		
-		</div>
+		<div id="ausgabe"></div></div>
 		
 		
 		
