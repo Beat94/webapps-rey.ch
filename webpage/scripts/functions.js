@@ -55,12 +55,20 @@ function midnight(){
 	
 }
 
-
-
-
-
+//Diese Funktion wird nicht mehr gebraucht
 function timeById(){
-	stunde = document.querySelector("#hour").value;
+	stunden = document.querySelector("#hour").value;
 	minuten = document.querySelector("#minute").value;
-	document.getElementById("ausgabe").innerHTML = toHours(stunde, minuten);
+	document.getElementById("ausgabe").innerHTML = toHours(stunden, minuten);
+}
+
+function timeByIdStr(){
+	inputString = document.querySelector("#inputStr").value;
+	inputStringSplit = inputString.split(":")
+	stunden = parseInt(inputStringSplit[0]);
+	minuten = parseInt(inputStringSplit[1]);
+
+	//document.getElementById("ausgabe").innerHTML = inputStringSplit;
+
+	document.getElementById("ausgabe").innerHTML = toHours(stunden, minuten);
 }
