@@ -56,8 +56,10 @@
 		<div>
 			<h2>Zeitrechner</h2>
 			<form>
-				<input type="text" id="inputStr" style="width:80px;" placeholder="hh:mm"><br><br>
-				<button id="btnTimeCalc" class="btn btn-dark" onclick="timeByIdStr()">Calculate</button>
+				Startzeit: <input type="text" id="Start" style="width:80px;" placeholder="hh:mm"><br><br>
+				Endzeit: <input type="text" id="End" style="width:80px;" placeholder="hh:mm"><br><br>
+				<button id="btnTimeCalc" class="btn btn-dark" onclick="timeByIdStartEnd()">Add Time</button>
+				<button id="btnTimeRes" class="btn btn-dark" onclick="timeReset()">Reset Time</button>
 			</form>
 		<div id="ausgabe"></div></div>
 		
