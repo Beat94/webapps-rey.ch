@@ -89,7 +89,9 @@ function ausgArr(){
 		document.getElementById("ausgabe").innerHTML += " | " +  startArr[i] + " | " + endArr[i] + " | " + calcArr[i] + " | <button onClick='editOpen(" + i + ")'>Editieren</button> | <button onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
 		total += calcArr[i];
 	}
-	document.getElementById("ausgabe").innerHTML += "</table><br><br>Total: " + total;
+	
+	document.getElementById("ausgabe").innerHTML += "</table><br><br>Total: " + total.toFixed(2);
+	console.log(total);
 }
 
 // arrAdd
