@@ -80,6 +80,8 @@ function timeByIdStr(){
 var startArr = ["r2d2"];
 var endArr = ["r2d2"];
 var calcArr = ["r2d2"];
+var startArrString = ["r2d2"];
+var endArrString = ["r2d2"];
 
 function ausgArr(){
 	document.getElementById("ausgabe").innerHTML = "";
@@ -88,7 +90,7 @@ function ausgArr(){
 
 	//output
 	for(var i = 0; i < startArr.length; i++){
-		document.getElementById("ausgabe").innerHTML += " | " +  startArr[i] + " | " + endArr[i] + " | " + calcArr[i] + " | <button onClick='editOpen(" + i + ")'>Editieren</button> | <button onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
+		document.getElementById("ausgabe").innerHTML += " | " +  startArrString[i] + " | " + endArrString[i] + " | " + calcArr[i] + " | <button onClick='editOpen(" + i + ")'>Editieren</button> | <button onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
 		total += calcArr[i];
 	}
 	
@@ -111,11 +113,15 @@ function timeByIdStartEnd(){
 	startArr.push(startToHours);
 	endArr.push(endToHours);
 	calcArr.push(calcToHours);
+	startArrString.push(startString);
+	endArrString.push(endString);
 	
 	if(startArr[0] === "r2d2"){
 		startArr.shift();
 		endArr.shift();
 		calcArr.shift();
+		startArrString.shift();
+		endArrString.shift();
 	}
 	
 	ausgArr();
@@ -126,6 +132,8 @@ function removeDataset(zeiger){
 	startArr.splice(zeiger, 1);
 	endArr.splice(zeiger, 1);
 	calcArr.splice(zeiger, 1);
+	startArrString.splice(zeiger, 1);
+	endArrString.splice(zeiger, 1);
 
 	ausgArr();
 }
@@ -138,13 +146,16 @@ function timeReset(){
 		startArr.splice(i, 1);
 		endArr.splice(i, 1);
 		calcArr.splice(i, 1);
+		startArrString.splice(i, 1);
+		endArrString.splice(i, 1);
 	}
 
 	//Array mit Standard-Wert füllen
 	startArr.push("r2d2");
 	endArr.push("r2d2");
 	calcArr.push("r2d2");
-
+	startArrString.push("r2d2");
+	endArrString.push("r2d2");
 
 	document.getElementById("ausgabe").innerHTML = "Zeit Resetted";
 	console.log("Fertig");
@@ -169,6 +180,8 @@ function inputNew(zeiger){
 	startArr[zeiger] = startToHours;
 	endArr[zeiger] = endToHours;
 	calcArr[zeiger] = calcToHours;
+	startArrString[zeiger] = startStringNew;
+	endArrString[zeiger] = endStringNew;
 
 	ausgArr();
 
