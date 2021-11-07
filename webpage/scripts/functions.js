@@ -162,10 +162,12 @@ function timeReset(){
 }
 
 function editOpen(zeiger){
-	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='hh:mm' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='hh:mm' style='width:80px;''> <button onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
+	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='"+ startArrString[zeiger] +"' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='"+ endArrString[zeiger] +"' style='width:80px;''> <button onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
 }
 
 function inputNew(zeiger){
+	isNotAnum = false;
+
 	startStringNew = document.getElementById("startEdit" + zeiger).value;
 	endStringNew = document.getElementById("endEdit" + zeiger).value;
 	
@@ -174,6 +176,19 @@ function inputNew(zeiger){
 
 	startToHours = toHours(startStringSplit[0], startStringSplit[1]);
 	endToHours = toHours(endStringSplit[0], endStringSplit[1]);
+
+	if(isNaN(startToHours)){
+		isNotAnum = true;
+		startToHours = startArr[zeiger];
+		startStringNew = startArrString[zeiger];
+	}
+
+	if(isNaN(endToHours)){
+		isNotAnum = true;
+		endToHours = endArr[zeiger];
+		endStringNew = endArrString[zeiger];
+	}
+
 	calcToHours = endToHours - startToHours;
 
 
