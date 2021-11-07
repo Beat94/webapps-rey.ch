@@ -69,8 +69,10 @@ function timeByIdStr(){
 	minuten = parseInt(inputStringSplit[1]);
 
 	// document.getElementById("ausgabe").innerHTML = inputStringSplit;
+	output = toHours(stunden, minuten);
 
-	document.getElementById("ausgabe").innerHTML = toHours(stunden, minuten);
+	document.getElementById("ausgabe").innerHTML = output.toFixed(2);
+	console.log(output)
 }
 
 // ab hier ist der Arr-Calc-Teil
