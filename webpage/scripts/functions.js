@@ -90,7 +90,7 @@ function ausgArr(){
 
 	//output
 	for(var i = 0; i < startArr.length; i++){
-		document.getElementById("ausgabe").innerHTML += " | " +  startArrString[i] + " | " + endArrString[i] + " | " + calcArr[i] + " | <button onClick='editOpen(" + i + ")'>Editieren</button> | <button onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
+		document.getElementById("ausgabe").innerHTML += " | " +  startArrString[i] + " | " + endArrString[i] + " | " + calcArr[i] + " | <button class='btn btn-dark' onClick='editOpen(" + i + ")'>Editieren</button> | <button class='btn btn-dark' onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
 		total += calcArr[i];
 	}
 	
@@ -162,7 +162,7 @@ function timeReset(){
 }
 
 function editOpen(zeiger){
-	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='"+ startArrString[zeiger] +"' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='"+ endArrString[zeiger] +"' style='width:80px;''> <button onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
+	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='"+ startArrString[zeiger] +"' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='"+ endArrString[zeiger] +"' style='width:80px;''> <button class='btn btn-dark' onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
 }
 
 function inputNew(zeiger){
