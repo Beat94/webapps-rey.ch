@@ -49,10 +49,11 @@
 				
 				
 			}
-			
+
+
 		</script>
 	</head>
-	<body>
+	<body onload="rtTime();">
 		<!--
 			Hier Nav-Bar-Test
 		-->
@@ -82,6 +83,8 @@
 			</div>
 		</div>
 		<br>
+	
+
 		<!--
 			Hier Zeitrechner-Test
 		-->
@@ -93,9 +96,19 @@
 				<button id="btnTimeCalc" class="btn btn-dark" onclick="timeByIdStartEnd()">Add Time</button>
 				<button id="btnTimeRes" class="btn btn-dark" onclick="timeReset()">Reset Time</button>
 			</form>
-		<div id="ausgabe"></div></div>
+			<div id="ausgabe"></div>
+		</div>
+		<br>
 		
-		
+		<!--
+			Realtime-Zeitangabe Test
+		-->
+		<div>
+			<h2>Zeitausgabe</h2>
+			<div id="rtzeitausg"></div>
+		</div>
+
+
 		
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-router"></script>
