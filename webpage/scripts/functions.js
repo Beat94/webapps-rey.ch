@@ -69,8 +69,10 @@ function timeByIdStr(){
 	minuten = parseInt(inputStringSplit[1]);
 
 	// document.getElementById("ausgabe").innerHTML = inputStringSplit;
+	output = toHours(stunden, minuten);
 
-	document.getElementById("ausgabe").innerHTML = toHours(stunden, minuten);
+	document.getElementById("ausgabe").innerHTML = output.toFixed(2);
+	console.log(output)
 }
 
 // ab hier ist der Arr-Calc-Teil
@@ -78,6 +80,8 @@ function timeByIdStr(){
 var startArr = ["r2d2"];
 var endArr = ["r2d2"];
 var calcArr = ["r2d2"];
+var startArrString = ["r2d2"];
+var endArrString = ["r2d2"];
 
 function ausgArr(){
 	document.getElementById("ausgabe").innerHTML = "";
@@ -86,10 +90,12 @@ function ausgArr(){
 
 	//output
 	for(var i = 0; i < startArr.length; i++){
-		document.getElementById("ausgabe").innerHTML += " | " +  startArr[i] + " | " + endArr[i] + " | " + calcArr[i] + " | <button onClick='editOpen(" + i + ")'>Editieren</button> | <button onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
+		document.getElementById("ausgabe").innerHTML += " | " +  startArrString[i] + " | " + endArrString[i] + " | " + calcArr[i] + " | <button class='btn btn-dark' onClick='editOpen(" + i + ")'>Editieren</button> | <button class='btn btn-dark' onClick='removeDataset("+ i +")'>L&oumlschen</button><br><div id='editDiv" + i + "'></div><br>";
 		total += calcArr[i];
 	}
-	document.getElementById("ausgabe").innerHTML += "</table><br><br>Total: " + total;
+	
+	document.getElementById("ausgabe").innerHTML += "</table><br><br>Total: " + total.toFixed(2);
+	console.log(total);
 }
 
 // arrAdd
@@ -107,11 +113,15 @@ function timeByIdStartEnd(){
 	startArr.push(startToHours);
 	endArr.push(endToHours);
 	calcArr.push(calcToHours);
+	startArrString.push(startString);
+	endArrString.push(endString);
 	
 	if(startArr[0] === "r2d2"){
 		startArr.shift();
 		endArr.shift();
 		calcArr.shift();
+		startArrString.shift();
+		endArrString.shift();
 	}
 	
 	ausgArr();
@@ -122,6 +132,8 @@ function removeDataset(zeiger){
 	startArr.splice(zeiger, 1);
 	endArr.splice(zeiger, 1);
 	calcArr.splice(zeiger, 1);
+	startArrString.splice(zeiger, 1);
+	endArrString.splice(zeiger, 1);
 
 	ausgArr();
 }
@@ -134,23 +146,28 @@ function timeReset(){
 		startArr.splice(i, 1);
 		endArr.splice(i, 1);
 		calcArr.splice(i, 1);
+		startArrString.splice(i, 1);
+		endArrString.splice(i, 1);
 	}
 
 	//Array mit Standard-Wert füllen
 	startArr.push("r2d2");
 	endArr.push("r2d2");
 	calcArr.push("r2d2");
-
+	startArrString.push("r2d2");
+	endArrString.push("r2d2");
 
 	document.getElementById("ausgabe").innerHTML = "Zeit Resetted";
 	console.log("Fertig");
 }
 
 function editOpen(zeiger){
-	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='hh:mm' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='hh:mm' style='width:80px;''> <button onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
+	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='"+ startArrString[zeiger] +"' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='"+ endArrString[zeiger] +"' style='width:80px;''> <button class='btn btn-dark' onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
 }
 
 function inputNew(zeiger){
+	isNotAnum = false;
+
 	startStringNew = document.getElementById("startEdit" + zeiger).value;
 	endStringNew = document.getElementById("endEdit" + zeiger).value;
 	
@@ -159,13 +176,55 @@ function inputNew(zeiger){
 
 	startToHours = toHours(startStringSplit[0], startStringSplit[1]);
 	endToHours = toHours(endStringSplit[0], endStringSplit[1]);
+
+	if(isNaN(startToHours)){
+		isNotAnum = true;
+		startToHours = startArr[zeiger];
+		startStringNew = startArrString[zeiger];
+	}
+
+	if(isNaN(endToHours)){
+		isNotAnum = true;
+		endToHours = endArr[zeiger];
+		endStringNew = endArrString[zeiger];
+	}
+
 	calcToHours = endToHours - startToHours;
 
 
 	startArr[zeiger] = startToHours;
 	endArr[zeiger] = endToHours;
 	calcArr[zeiger] = calcToHours;
+	startArrString[zeiger] = startStringNew;
+	endArrString[zeiger] = endStringNew;
 
 	ausgArr();
 
+}
+
+function fuhrungsNull(variable){
+	output = variable;
+
+	if(parseInt(variable) < 10){
+		output = "0" + variable;
+	}
+
+	return output;
+}
+
+//helpful: https://www.it-swarm.com.de/de/javascript/wie-zeige-ich-die-aktuelle-uhrzeit-javascript-im-format-hh-mm-ss/1040374542/
+function rtTime(){
+				
+	setInterval(() => {
+		time = new Date();
+		hour = fuhrungsNull(time.getHours());
+		minute = fuhrungsNull(time.getMinutes());
+		second = fuhrungsNull(time.getSeconds());
+
+
+
+
+		document.getElementById("rtzeitausg").innerHTML = "<p id='timeDirect'>" + hour + ":" + minute + ":" + second + "</p>";
+		//document.getElementById("rtzeitausg").innerHTML = "<p>" + time.getTime()+ "</p>";
+	})
 }
