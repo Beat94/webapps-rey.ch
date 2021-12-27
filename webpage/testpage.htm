@@ -108,8 +108,73 @@
 			<div id="rtzeitausg"></div>
 		</div>
 
+		<!-- Nav-Bar Test-->
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+			<div class="Container-fluid">
+				<a class="navbar-brand" href="#">Expand at sm</a>
+				<!-- Knopf - falls das Device zu schmal ist -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-lable="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- normale navbar -->
+				<div id="navbarExample" class="collapse navbar-collapse">
+					<ul class="navbar-nav me-auto mg-2 mb-sm-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">Link2</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-		
+
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+			<div class="container-fluid">
+				<router-link class="navbar-brand" to="/">Apps - Home</router-link>
+				<!-- Für mobile Ansicht -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-lable="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- normale Ansicht -->
+				<div id="mainMenu" class="collapse navbar-collapse">
+					<ul class="navbar-nav me-auto mb-2 mb-sm-0">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Zeitrechner</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li>
+									<router-link class="dropdown-item" to="/zeitrechner">Zeitrechner</router-link>
+								</li>
+								<li>
+									<router-link class="dropdown-item" to="/zeitrechner2">Zeitrechner (Startzeit / Endzeit)</router-link>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<router-link class="nav-link" to="/midnightformula">Mitternachtsformel</router-link>
+						</li>
+						<li class="nav-item">
+							<router-link class="nav-link" to="/uhrzeit">Uhrzeit</router-link>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="container-fluid"><router-link class="navbar-brand" to="/">Apps - Home</router-link><!-- Für mobile Ansicht --><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-lable="Toggle navigation"><span class="navbar-toggler-icon"></span></button><!-- normale Ansicht --><div id="mainMenu" class="collapse navbar-collapse"><ul class="navbar-nav me-auto mb-2 mb-sm-0"><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Zeitrechner</a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><router-link class="dropdown-item" to="/zeitrechner">Zeitrechner</router-link></li><li><router-link class="dropdown-item" to="/zeitrechner2">Zeitrechner (Startzeit / Endzeit)</router-link></li></ul></li><li class="nav-item"><router-link class="nav-link" to="/midnightformula">Mitternachtsformel</router-link></li><li class="nav-item"><router-link class="nav-link" to="/uhrzeit">Uhrzeit</router-link></li></ul></div></div></nav>
+
+
+
+
+
+
+
+
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-router"></script>
 		<script src=".\scripts\vue-routing.js"></script>
