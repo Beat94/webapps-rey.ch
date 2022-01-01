@@ -203,10 +203,11 @@ function inputNew(zeiger){
 }
 
 function fuhrungsNull(variable){
-	output = variable;
+	varStr = String(variable);
+	output = varStr;
 
 	if(parseInt(variable) < 10){
-		output = "0" + variable;
+		output = "0" + varStr;
 	}
 
 	return output;
@@ -224,7 +225,7 @@ function rtTime(){
 
 
 
-		document.getElementById("rtzeitausg").innerHTML = "<p id='timeDirect'>" + hour + ":" + minute + ":" + second + "</p>";
+		document.getElementById("rtzeitausg").innerText = hour + ":" + minute + ":" + second;
 		//document.getElementById("rtzeitausg").innerHTML = "<p>" + time.getTime()+ "</p>";
 	})
 }
