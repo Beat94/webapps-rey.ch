@@ -162,7 +162,7 @@ function timeReset(){
 }
 
 function editOpen(zeiger){
-	document.getElementById("editDiv" + zeiger).innerHTML = "<br>Startzeit: <input id='startEdit" + zeiger + "' placeholder='"+ startArrString[zeiger] +"' style='width:80px;'> | Endzeit: <input id='endEdit" + zeiger + "' placeholder='"+ endArrString[zeiger] +"' style='width:80px;''> <button class='btn btn-dark' onClick='inputNew(" + zeiger + ")'>Speichern</button><br>";
+	document.getElementById("editDiv" + zeiger).innerHTML = "<br><form><table><tr><td>Startzeit:</td><td><input id='startEdit" + zeiger + "' placeholder='"+ startArrString[zeiger] +"' style='width:80px;' class='form-control'></td><td> Endzeit:</td><td> <input id='endEdit" + zeiger + "' placeholder='"+ endArrString[zeiger] +"' style='width:80px;' class='form-control'></td><td> <button class='btn btn-dark' onClick='inputNew(" + zeiger + ")'>Speichern</button></tr></table></form><br>";
 }
 
 function inputNew(zeiger){
