@@ -216,16 +216,12 @@ function fuhrungsNull(variable){
 //helpful: https://www.it-swarm.com.de/de/javascript/wie-zeige-ich-die-aktuelle-uhrzeit-javascript-im-format-hh-mm-ss/1040374542/
 function rtTime(){
 				
-	setInterval(() => {
-		time = new Date();
-		hour = fuhrungsNull(time.getHours());
-		minute = fuhrungsNull(time.getMinutes());
-		second = fuhrungsNull(time.getSeconds());
+	time = new Date();
+	hour = fuhrungsNull(time.getHours());
+	minute = fuhrungsNull(time.getMinutes());
+	second = fuhrungsNull(time.getSeconds());
 
+	document.getElementById("rtzeitausg").innerText = hour + ":" + minute + ":" + second;
 
-
-
-		document.getElementById("rtzeitausg").innerText = hour + ":" + minute + ":" + second;
-		//document.getElementById("rtzeitausg").innerHTML = "<p>" + time.getTime()+ "</p>";
-	})
+	
 }
