@@ -9,4 +9,4 @@ The page contains following functions:
   - timecalculator (hours:minutes to decimal-hours)
   - timecalculator (with starttime and endtime to decimal-hours)
 - midnightformula
-- clock (takes time out of device)
+- clock
